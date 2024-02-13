@@ -54,11 +54,11 @@ export const signin = async (req, res, next) => {
     const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET);
     //Taking out the password before sending the user details
     const { password: pass, ...rest } = validUser._doc;
-    
+
     res
       .status(200)
       .cookie("access_token", token, { httpOnly: true })
-      .json({ rest });
+      .json(rest);
   } catch (error) {
     return next(error);
   }
