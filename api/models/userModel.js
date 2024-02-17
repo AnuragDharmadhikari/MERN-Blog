@@ -16,10 +16,14 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    profilePicture:{
-      type:String,
-      default:"https://www.svgrepo.com/show/170633/profile-user.svg"
-    }
+    profilePicture: {
+      type: String,
+      default: "https://www.svgrepo.com/show/170633/profile-user.svg",
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
