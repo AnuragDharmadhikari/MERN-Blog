@@ -22,7 +22,7 @@ export const create = async (req, res, next) => {
       userId: req.user.id,
     });
 
-    res.status(201).json({ newPost });
+    res.status(201).json( newPost );
   } catch (error) {
     next(error);
   }
