@@ -79,6 +79,14 @@ const CommentSection = ({ postId }) => {
       console.log(error.message);
     }
   };
+
+  const handleEdit = async (comment, editedContent) => {
+    setGetComments(
+      getComments.map((c) =>
+        c._id === comment._id ? { ...c, content: editedContent } : c
+      )
+    );
+  };
   return (
     <div className=" max-w-2xl mx-auto w-full p-3">
       {currentUser ? (
@@ -147,6 +155,7 @@ const CommentSection = ({ postId }) => {
               key={getComments._id}
               comment={comment}
               onLike={handleLike}
+              onEdit={handleEdit}
             />
           ))}
         </>
