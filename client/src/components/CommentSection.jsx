@@ -12,7 +12,6 @@ const CommentSection = ({ postId }) => {
   const [showModal, setShowModal] = useState(false);
   const [commentToDelete, setCommentToDelete] = useState(null);
   const navigate = useNavigate();
-  console.log(getComments);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (comment.length > 200) {
@@ -103,7 +102,9 @@ const CommentSection = ({ postId }) => {
       });
       if (res.ok) {
         const data = await res.json();
-        setGetComments(getComments.filter((comment) => comment._id !== commentId));
+        setGetComments(
+          getComments.filter((comment) => comment._id !== commentId)
+        );
       }
     } catch (error) {
       console.log(error);
